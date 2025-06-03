@@ -72,16 +72,10 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl">
                 <img 
-<<<<<<< HEAD
-                   src="/assets/image/kanish.jpg" 
-                   alt="Kanishkar D" 
-                   className="w-full h-full object-cover"
-=======
-                  src="/assets/image/kanish.jpg" 
-                  alt="Kanishkar D" 
-                  className="w-full h-full object-cover"
->>>>>>> edd867c (fixed image path)
-                />
+                    src="/assets/image/kanish.jpg" 
+                    alt="Kanishkar D" 
+                    className="w-full h-full object-cover"
+/>
               </div>
               <div className="absolute -bottom-5 -right-5 bg-white dark:bg-dark-card p-4 rounded-lg shadow-lg">
                 <h3 className="text-xl font-bold text-primary dark:text-primary-dark">Kanishkar D</h3>
