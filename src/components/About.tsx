@@ -72,7 +72,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                  src="/assets/image/kanish.jpg" 
+                  src="./assets/image/kanish.jpg" 
                   alt="Kanishkar D" 
                   className="w-full h-full object-cover"
                 />
