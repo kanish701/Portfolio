@@ -35,7 +35,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Store Demand Forecasting with LSTM",
       description: "Created a time-series forecasting system using LSTM networks to predict store demand, helping businesses optimize inventory management and staffing.",
-      image: "/image/grocery stores.jpg",
+      image: "/assets/image/grocery stores.jpg",
       technologies: ["Python", "TensorFlow", "LSTM", "Time-Series Analysis", "Keras"],
       githubLink: "#",
     },
