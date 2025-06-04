@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import kanishImg from '../assets/image/kanish.jpg';
 
 const About: React.FC = () => {
   return (
@@ -71,16 +72,10 @@ const About: React.FC = () => {
           >
             <div className="relative">
               <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl">
-                <img 
-<<<<<<< HEAD
-                   src="/assets/image/kanish.jpg" 
+                <img
+                   src="../assets/image/kanish.jpg" 
                    alt="Kanishkar D" 
                    className="w-full h-full object-cover"
-=======
-                  src="/assets/image/kanish.jpg" 
-                  alt="Kanishkar D" 
-                  className="w-full h-full object-cover"
->>>>>>> edd867c (fixed image path)
                 />
               </div>
               <div className="absolute -bottom-5 -right-5 bg-white dark:bg-dark-card p-4 rounded-lg shadow-lg">
