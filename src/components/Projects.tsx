@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
+import porjectImg from '../assets/image/grocery stores.jpg'; // Adjust the import path as necessary
 
 interface Project {
   id: number;
@@ -35,7 +36,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Store Demand Forecasting with LSTM",
       description: "Created a time-series forecasting system using LSTM networks to predict store demand, helping businesses optimize inventory management and staffing.",
-      image: "/assets/image/grocery stores.jpg",
+      image: porjectImg,
       technologies: ["Python", "TensorFlow", "LSTM", "Time-Series Analysis", "Keras"],
       githubLink: "#",
     },

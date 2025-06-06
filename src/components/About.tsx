@@ -1,6 +1,7 @@
 import React from 'react';
 import { Mail, Phone, Linkedin, Github } from 'lucide-react';
 import { motion } from 'framer-motion';
+import aboutImg from '../assets/image/kanish.jpg';
 
 const About: React.FC = () => {
   return (
@@ -72,7 +73,7 @@ const About: React.FC = () => {
             <div className="relative">
               <div className="aspect-square max-w-md mx-auto rounded-2xl overflow-hidden shadow-xl">
                 <img 
-                    src="/assets/image/kanish.jpg" 
+                    src={aboutImg}
                     alt="Kanishkar D" 
                     className="w-full h-full object-cover"
 />
