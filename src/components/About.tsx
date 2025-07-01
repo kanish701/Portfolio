@@ -20,7 +20,7 @@ const About: React.FC = () => {
             className="order-2 md:order-1"
           >
             <p className="text-lg mb-6 leading-relaxed">
-              I'm a passionate final-year AI & Data Science student with a strong interest in building intelligent systems 
+              I'm a passionate AI & Data Science student with a strong interest in building intelligent systems 
               and analyzing complex datasets. My experience in WordPress development has honed my skills in creating 
               responsive, user-friendly websites for clients across various industries.
             </p>

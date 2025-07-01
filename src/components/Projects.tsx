@@ -1,7 +1,11 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Github, ExternalLink } from 'lucide-react';
-import porjectImg from '../assets/image/grocery stores.jpg'; // Adjust the import path as necessary
+import project1Img from '../assets/image/AIyutham.png';
+import porject3Img from '../assets/image/Wearme appaarels.png'; // Adjust the import path as necessary
+import project4Img from '../assets/image/Shady.png';
+import project5Img from '../assets/image/Manpower.png';
+ // Adjust the import path as necessary
 
 interface Project {
   id: number;
@@ -17,10 +21,10 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "Tetris AI using Pygame",
-      description: "Developed an AI agent using reinforcement learning that plays Tetris. Implemented custom algorithms to optimize piece placement and maximize score.",
-      image: "https://images.pexels.com/photos/7616883/pexels-photo-7616883.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["Python", "Pygame", "Reinforcement Learning", "NumPy"],
+      title: "AIyutham – AI-Powered Digital Solutions Website",
+      description: "I developed the official website for AIyutham, an AI-based startup that provides cutting-edge digital marketing and web automation solutions. The goal was to build a modern, responsive, and AI-integrated platform that effectively communicates their services and brand vision.",
+      image: project1Img,
+      technologies: ["WordPress + Elementor", "Custom CSS", "SEO Tools","Web Design"],
       githubLink: "#",
     },
     {
@@ -34,21 +38,29 @@ const Projects: React.FC = () => {
     },
     {
       id: 3,
-      title: "Store Demand Forecasting with LSTM",
-      description: "Created a time-series forecasting system using LSTM networks to predict store demand, helping businesses optimize inventory management and staffing.",
-      image: porjectImg,
-      technologies: ["Python", "TensorFlow", "LSTM", "Time-Series Analysis", "Keras"],
-      githubLink: "#",
+      title: "WearMe Apparels – Fashion Brand Website Development",
+      description: "I developed the official website for WearMe Apparels, a growing fashion and lifestyle brand. The goal was to build a modern, visually appealing platform that showcases the brand, collections, and style philosophy — without direct e-commerce integration.",
+      image: porject3Img,
+      technologies: ["WordPress + Elementor", "HTML", "Custom CSS", "SEO Tools"],
+      demoLink: "https://wearmeappaarels.website.simsys.in/",
     },
     {
       id: 4,
       title: "S.H.A.D.Y – Smart Human Activity Detection Using YOLO",
       description: "Implemented a computer vision system that detects and classifies human activities in real-time using YOLO object detection framework.",
-      image: "https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600",
+      image: project4Img,
       technologies: ["Python", "YOLO", "OpenCV", "Deep Learning", "Computer Vision"],
       githubLink: "#",
       demoLink: "#",
     },
+    {
+      id: 5,
+      title: "Weman power – Static Website for a Manpower Service Provider",
+      description: "Designed and developed a fully responsive, frontend-only website for a fictional manpower service provider company. The website functions like a professional business showcase with clear service categories, static job listings, and a functional login flow for employers",
+      image: project5Img,
+      technologies: ["JavaScript", "Reacts", "Tailwind CSS", "React Router"],
+      demoLink: "",
+    }
   ];
 
   const container = {

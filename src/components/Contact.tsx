@@ -217,7 +217,7 @@ const Contact: React.FC = () => {
                     value={formData.name}
                     onChange={handleChange}
                     className="w-full px-4 py-3 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-primary/50 dark:focus:ring-primary-dark/50 transition-colors"
-                    placeholder="John Doe"
+                    placeholder="Tony Stark"
                     required
                   />
                 </div>

@@ -88,12 +88,12 @@ const Hero: React.FC = () => {
         </div>
         
         <p className="text-md sm:text-lg md:text-xl mt-6 mb-8 opacity-90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-          Final-year AI&DS student | WordPress Dev | Aspiring Analyst
+           Tech Enthusiast | WordPress Dev | Aspiring Analyst 
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
           <a 
-            href="/public/Kanishkar.D Resume.pdf" 
+            href="/public/Kanishkar Resume.pdf" 
             target="_blank" 
             rel="noopener noreferrer"
             className="btn btn-primary glow flex items-center justify-center gap-2"
