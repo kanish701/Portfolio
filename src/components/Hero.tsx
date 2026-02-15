@@ -3,123 +3,126 @@ import { Link as ScrollLink } from 'react-scroll';
 import { TypeAnimation } from 'react-type-animation';
 import Particles from 'react-particles';
 import { loadSlim } from 'tsparticles-slim';
-import { Download, ArrowRight } from 'lucide-react';
+import type { Engine } from 'tsparticles-engine';
+import { Download, ArrowRight, MousePointer2, Sparkles } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 const Hero: React.FC = () => {
-  const particlesInit = useCallback(async (engine: any) => {
+  const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
   }, []);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden bg-white dark:bg-[#0B0F1A]">
+      
+      {/* 1. Refined Background: Lowered density for a "cleaner" UI */}
       <Particles
         id="tsparticles"
-        className="particles-container"
+        className="absolute inset-0 z-0"
         init={particlesInit}
         options={{
-          background: {
-            color: {
-              value: "transparent",
-            },
-          },
+          fullScreen: { enable: false },
           fpsLimit: 120,
           particles: {
-            color: {
-              value: "#6366f1",
-            },
+            color: { value: "#6366f1" },
             links: {
               color: "#6366f1",
-              distance: 150,
+              distance: 200,
               enable: true,
-              opacity: 0.3,
+              opacity: 0.1, // Very subtle
               width: 1,
             },
-            move: {
-              direction: "none",
-              enable: true,
-              outModes: {
-                default: "bounce",
-              },
-              random: false,
-              speed: 1,
-              straight: false,
-            },
-            number: {
-              density: {
-                enable: true,
-                area: 800,
-              },
-              value: 80,
-            },
-            opacity: {
-              value: 0.3,
-            },
-            shape: {
-              type: "circle",
-            },
-            size: {
-              value: { min: 1, max: 3 },
-            },
+            move: { enable: true, speed: 0.4, direction: "none", outModes: "out" },
+            number: { value: 30, density: { enable: true, area: 1000 } },
+            opacity: { value: 0.2 },
+            size: { value: { min: 1, max: 2 } },
           },
           detectRetina: true,
         }}
       />
-      
-      <div className="relative z-10 text-center px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-4 animate-fade-in">
-          KANISHKAR D
-        </h1>
+
+      {/* 2. Visual Hook: Gradient Orbs for Depth */}
+      <div className="absolute top-1/4 -left-20 w-80 h-80 bg-primary/10 blur-[120px] rounded-full animate-pulse" />
+      <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-accent/5 blur-[140px] rounded-full" />
+
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
         
-        <div className="h-12 flex justify-center items-center">
+        {/* 3. Availability Badge: Classic UI/UX Professional Touch */}
+        <motion.div 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-white/10 text-slate-600 dark:text-slate-400 text-xs font-bold uppercase tracking-widest mb-8"
+        >
+          <span className="relative flex h-2 w-2">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+          </span>
+          Available for Digital Strategy & Design
+        </motion.div>
+
+        {/* 4. Main Title: Emphasis on the Name and Brand */}
+        <h1 className="text-6xl sm:text-7xl md:text-9xl font-extrabold mb-6 tracking-tighter leading-none text-slate-900 dark:text-white">
+          Kanishkar <span className="text-primary italic">D.</span>
+        </h1>
+
+        {/* 5. Strategy-Led Typing Animation */}
+        <div className="h-12 flex justify-center items-center mb-6">
           <TypeAnimation
             sequence={[
-              'Code.',
-              1000,
-              'Code. Analyze.',
-              1000,
-              'Code. Analyze. Innovate.',
-              3000,
+              'Strategic UI/UX Designer.',
+              2000,
+              'Full-Stack Developer.',
+              2000,
+              'Data-Driven Growth Analyst.',
+              2000,
+              'WordPress Architect.',
+              2000,
             ]}
             wrapper="h2"
             speed={50}
             repeat={Infinity}
-            className="text-xl sm:text-2xl md:text-3xl text-primary dark:text-primary-dark font-bold"
+            className="text-xl sm:text-2xl md:text-3xl font-medium text-slate-500 dark:text-slate-400 tracking-tight"
           />
         </div>
-        
-        <p className="text-md sm:text-lg md:text-xl mt-6 mb-8 opacity-90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-           Tech Enthusiast | WordPress Dev | Aspiring Analyst 
+
+        {/* 6. High-Impact Copy: Focused on Results, Not Just Skills */}
+        <p className="text-lg md:text-xl max-w-2xl mx-auto mb-12 text-slate-600 dark:text-slate-400 leading-relaxed font-light">
+          I bridge the gap between <span className="font-semibold text-slate-900 dark:text-white">technical complexity</span> and 
+          <span className="font-semibold text-slate-900 dark:text-white"> human-centric design</span> to build digital products that scale.
         </p>
-        
-        <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-          <a 
-            href="/public/Kanishkar Resume.pdf" 
-            target="_blank" 
-            rel="noopener noreferrer"
-            className="btn btn-primary glow flex items-center justify-center gap-2"
+
+        {/* 7. Action Buttons: Upgraded with "Glow-Pro" and Micro-interactions */}
+        <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
+          <a
+            href="/public/Kanishkar Resume.pdf"
+            className="btn btn-primary glow-pro w-full sm:w-auto px-10 py-4 flex items-center justify-center gap-3 group"
             download
           >
-            <Download size={18} />
-            Download Resume
+            <Download size={18} className="group-hover:translate-y-0.5 transition-transform" />
+            Download Case Studies
           </a>
-          
+
           <ScrollLink
             to="contact"
             smooth={true}
-            duration={800}
-            offset={-70}
-            className="btn btn-secondary flex items-center justify-center gap-2 cursor-pointer"
+            className="btn btn-secondary w-full sm:w-auto px-10 py-4 flex items-center justify-center gap-3 cursor-pointer group"
           >
-            Let's Connect
-            <ArrowRight size={18} />
+            Start a Project
+            <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </ScrollLink>
         </div>
       </div>
-      
-      <div className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce">
-        <ScrollLink to="about" smooth={true} duration={800} className="cursor-pointer">
-          <div className="w-8 h-14 rounded-full border-2 border-gray-400 dark:border-gray-500 flex justify-center">
-            <div className="w-1.5 h-3 bg-gray-400 dark:bg-gray-500 rounded-full mt-2 animate-float"></div>
+
+      {/* 8. Refined Scroll Indicator */}
+      <div className="absolute bottom-12 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-3 opacity-50 hover:opacity-100 transition-opacity">
+        <span className="text-[10px] uppercase tracking-[0.4em] font-bold text-slate-400">Explore</span>
+        <ScrollLink to="about" smooth={true} className="cursor-pointer">
+          <div className="w-6 h-10 rounded-full border-2 border-slate-300 dark:border-slate-700 p-1">
+            <motion.div 
+              animate={{ y: [0, 12, 0] }}
+              transition={{ repeat: Infinity, duration: 1.5 }}
+              className="w-1 h-2 bg-primary rounded-full mx-auto"
+            />
           </div>
         </ScrollLink>
       </div>

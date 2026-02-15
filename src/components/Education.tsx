@@ -1,15 +1,15 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { GraduationCap, Calendar } from 'lucide-react';
+import { GraduationCap, Calendar, Star, BookOpen } from 'lucide-react';
 
 interface Education {
   id: number;
   institution: string;
   degree: string;
-  specialization?: string; // Added specialization field
+  specialization?: string;
   period: string;
   score: string;
-  icon: React.ReactNode;
+  description: string; // Added description to show relevance
 }
 
 const Education: React.FC = () => {
@@ -18,19 +18,19 @@ const Education: React.FC = () => {
       id: 1,
       institution: "Kathir College of Engineering",
       degree: "Bachelor of Technology",
-      specialization: "Artificial Intelligence and Data Science", // Specialization added
+      specialization: "Artificial Intelligence and Data Science",
       period: "2021 – 2025",
       score: "CGPA: 7.24",
-      icon: <GraduationCap size={24} />,
+      description: "Focusing on human-computer interaction, predictive modeling, and data visualization strategies."
     },
     {
       id: 2,
       institution: "Subash Matric Higher Secondary School",
       degree: "Higher Secondary",
-      specialization: "Maths-Computer Science", // Specialization added
+      specialization: "Maths - Computer Science",
       period: "2020 – 2021",
       score: "Score: 75.6%",
-      icon: <GraduationCap size={24} />,
+      description: "Foundation in computational thinking and mathematical logic."
     },
   ];
 
@@ -38,67 +38,91 @@ const Education: React.FC = () => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.3 },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+    hidden: { opacity: 0, x: -20 },
+    show: { opacity: 1, x: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
   return (
-    <section id="education" className="py-20 bg-gray-50 dark:bg-gray-900">
+    <section id="education" className="py-16 bg-white dark:bg-[#0B0F1A] relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none -z-10">
+        <div className="absolute top-20 right-[10%] w-64 h-64 bg-primary/5 blur-[100px] rounded-full" />
+      </div>
+
       <div className="section-container">
-        <div className="text-center mb-12">
-          <h2 className="section-title">Education</h2>
-          <p className="mt-4 text-lg max-w-2xl mx-auto">
-            My academic journey and achievements.
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-4">
+          <div className="max-w-xl">
+            <h2 className="text-primary font-bold tracking-[0.3em] uppercase text-sm mb-4">Academic Foundation</h2>
+            <h3 className="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white tracking-tight">
+              Education <span className="text-slate-400">&</span> Certifications
+            </h3>
+          </div>
+          <p className="text-slate-500 dark:text-slate-400 md:max-w-xs text-sm leading-relaxed">
+            Combining analytical rigor with creative execution to solve complex digital problems.
           </p>
         </div>
-        
-        <motion.div 
-          className="max-w-3xl mx-auto space-y-8"
+
+        <motion.div
+          className="relative max-w-4xl mx-auto"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          {education.map((edu) => (
-            <motion.div 
+          {/* Vertical Timeline Line */}
+          <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 top-0 bottom-0 w-px bg-slate-200 dark:bg-slate-800 hidden sm:block" />
+
+          {education.map((edu, index) => (
+            <motion.div
               key={edu.id}
-              className="card p-6 relative border-l-4 border-primary dark:border-primary-dark"
               variants={item}
-              whileHover={{ 
-                x: 5,
-                transition: { duration: 0.2 }
-              }}
+              className={`relative flex items-center justify-between mb-12 w-full ${index % 2 === 0 ? "md:flex-row-reverse" : "md:flex-row"
+                }`}
             >
-              <div className="flex items-center gap-3 mb-4">
-                <div className="p-2 bg-primary/10 dark:bg-primary-dark/10 rounded-lg text-primary dark:text-primary-dark">
-                  {edu.icon}
-                </div>
-                <h3 className="text-xl font-bold">{edu.institution}</h3>
-              </div>
-              
-              <div className="space-y-2 ml-2">
-                <p className="text-lg font-medium text-gray-800 dark:text-gray-200">
-                  {edu.degree}
-                  {edu.specialization && ` - ${edu.specialization}`} {/* Display specialization */}
-                </p>
-                
-                <div className="flex items-center gap-4 text-sm text-gray-600 dark:text-gray-400">
-                  <div className="flex items-center gap-1">
-                    <Calendar size={14} />
-                    <span>{edu.period}</span>
+              {/* Timeline Dot */}
+              <div className="absolute left-0 md:left-1/2 transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary border-4 border-white dark:border-[#0B0F1A] z-10 hidden sm:block" />
+
+              {/* Content Card */}
+              <div className="w-full md:w-[45%]">
+                <div className="card p-8 group hover:border-primary/50 transition-all">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="p-3 bg-primary/10 rounded-xl text-primary group-hover:bg-primary group-hover:text-white transition-colors">
+                      <GraduationCap size={22} />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold text-primary uppercase tracking-widest">{edu.period}</span>
+                      <h4 className="text-xl font-bold text-slate-900 dark:text-white tracking-tight">{edu.institution}</h4>
+                    </div>
                   </div>
-                  <span className="font-medium text-primary dark:text-primary-dark">
-                    {edu.score}
-                  </span>
+
+                  <div className="space-y-3">
+                    <p className="text-lg font-semibold text-slate-700 dark:text-slate-200 leading-tight">
+                      {edu.degree}
+                    </p>
+                    <p className="text-sm font-medium text-primary/80 dark:text-primary-dark/80">
+                      {edu.specialization}
+                    </p>
+                    <p className="text-sm text-slate-500 dark:text-slate-400 leading-relaxed italic">
+                      "{edu.description}"
+                    </p>
+
+                    <div className="pt-4 flex items-center gap-2">
+                      <Star size={14} className="text-amber-500 fill-amber-500" />
+                      <span className="text-sm font-bold text-slate-900 dark:text-white">
+                        {edu.score}
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
+
+              {/* Spacer for desktop layout */}
+              <div className="hidden md:block w-[45%]" />
             </motion.div>
           ))}
         </motion.div>

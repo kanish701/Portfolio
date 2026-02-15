@@ -4,45 +4,50 @@ export default {
   darkMode: 'class',
   theme: {
     extend: {
-      colors: {
-        primary: '#3b82f6', // Changed to blue-500
-        'primary-dark': '#60a5fa', // Changed to blue-400
-        secondary: '#10b981', // Changed to emerald-500
-        'secondary-dark': '#34d399', // Changed to emerald-400
-        accent: '#8b5cf6', // Changed to violet-500
-        'accent-dark': '#a78bfa', // Changed to violet-400
-        success: '#22c55e',
-        warning: '#eab308',
-        error: '#ef4444',
-        'light-bg': '#f9fafb',
-        'dark-bg': '#111827',
-        'light-text': '#1f2937',
-        'dark-text': '#f3f4f6',
-        'dark-card': '#1e293b',
-      },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        heading: ['Outfit', 'sans-serif'],
+      },
+      colors: {
+        primary: {
+          DEFAULT: '#3b82f6',
+          dark: '#60a5fa',
+        },
+        secondary: {
+          DEFAULT: '#10b981',
+          dark: '#34d399',
+        },
+        accent: {
+          DEFAULT: '#8b5cf6',
+          dark: '#a78bfa',
+        },
+        // Custom background colors for a richer feel
+        'light-bg': '#f8fafc', // Slate 50
+        'dark-bg': '#0f172a', // Slate 900
+        'light-card': '#ffffff',
+        'dark-card': '#1e293b', // Slate 800
+
+        // Text colors
+        'light-text-primary': '#1e293b', // Slate 800
+        'light-text-secondary': '#475569', // Slate 600
+        'dark-text-primary': '#f8fafc', // Slate 50
+        'dark-text-secondary': '#94a3b8', // Slate 400
       },
       animation: {
-        float: 'float 6s ease-in-out infinite',
-        typing: 'typing 3.5s steps(40, end)',
-        blink: 'blink .75s step-end infinite',
+        'float': 'float 6s ease-in-out infinite',
+        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'spin-slow': 'spin 8s linear infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-20px)' },
         },
-        typing: {
-          from: { width: '0' },
-          to: { width: '100%' },
-        },
-        blink: {
-          from: { borderColor: 'transparent' },
-          to: { borderColor: 'transparent' },
-          '50%': { borderColor: 'white' },
-        },
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'hero-gradient': 'linear-gradient(to right bottom, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1))',
+      }
     },
   },
   plugins: [],

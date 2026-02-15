@@ -1,65 +1,76 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, ExternalLink } from 'lucide-react';
+import {
+  Award, ExternalLink, ShieldCheck,
+  Database, BarChart, Users,
+  Briefcase, Code, FileSpreadsheet
+} from 'lucide-react';
 
 interface Certification {
   id: number;
   title: string;
   issuer: string;
   date: string;
-  link?: string;
-  icon: string;
+  link: string;
+  category: 'Data' | 'Business' | 'Tools';
+  icon: React.ReactNode;
 }
 
 const Certifications: React.FC = () => {
   const certifications: Certification[] = [
     {
-      id: 1,
-      title: "Python Programming",
-      issuer: "Simplilearn",
-      date: "March 2023",
+      id: 6,
+      title: "Project Management Essentials",
+      issuer: "Google",
+      date: "Feb 2024",
       link: "#",
-      icon: "🐍",
-    },
-    {
-      id: 2,
-      title: "MySQL Database Administration",
-      issuer: "Great Learning",
-      date: "June 2023",
-      link: "#",
-      icon: "🗄️",
-    },
-    {
-      id: 3,
-      title: "Excel for Data Analysis",
-      issuer: "Alison",
-      date: "September 2023",
-      link: "#",
-      icon: "📊",
-    },
-    {
-      id: 4,
-      title: "Microsoft Office Specialist",
-      issuer: "Microsoft",
-      date: "January 2024",
-      link: "#",
-      icon: "📝",
+      category: "Business",
+      icon: <Briefcase size={20} className="text-blue-500" />,
     },
     {
       id: 5,
       title: "HR Management Fundamentals",
       issuer: "Coursera",
-      date: "November 2023",
+      date: "Nov 2023",
       link: "#",
-      icon: "👥",
+      category: "Business",
+      icon: <Users size={20} className="text-emerald-500" />,
     },
     {
-      id: 6,
-      title: "Project Management Essentials",
-      issuer: "Google",
-      date: "February 2024",
+      id: 1,
+      title: "Python Programming",
+      issuer: "Simplilearn",
+      date: "Mar 2023",
       link: "#",
-      icon: "📈",
+      category: "Data",
+      icon: <Code size={20} className="text-amber-500" />,
+    },
+    {
+      id: 2,
+      title: "MySQL Database Admin",
+      issuer: "Great Learning",
+      date: "Jun 2023",
+      link: "#",
+      category: "Data",
+      icon: <Database size={20} className="text-indigo-500" />,
+    },
+    {
+      id: 3,
+      title: "Excel for Data Analysis",
+      issuer: "Alison",
+      date: "Sep 2023",
+      link: "#",
+      category: "Tools",
+      icon: <BarChart size={20} className="text-green-500" />,
+    },
+    {
+      id: 4,
+      title: "Microsoft Office Specialist",
+      issuer: "Microsoft",
+      date: "Jan 2024",
+      link: "#",
+      category: "Tools",
+      icon: <FileSpreadsheet size={20} className="text-red-500" />,
     },
   ];
 
@@ -67,74 +78,82 @@ const Certifications: React.FC = () => {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
+      transition: { staggerChildren: 0.1 },
     },
   };
 
-  const item = {
-    hidden: { opacity: 0, y: 20 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  };
-
   return (
-    <section id="certifications" className="py-20 bg-gray-50 dark:bg-gray-900">
-      <div className="section-container">
-        <div className="text-center mb-12">
-          <h2 className="section-title">Certifications</h2>
-          <p className="mt-4 text-lg max-w-2xl mx-auto">
-            Professional certifications that validate my skills and expertise.
+    <section id="certifications" className="py-16 bg-white dark:bg-[#020617] relative overflow-hidden">
+      {/* Background Decorative Element */}
+      <div className="absolute top-0 right-0 p-20 opacity-[0.03] dark:opacity-[0.07] pointer-events-none">
+        <ShieldCheck size={400} />
+      </div>
+
+      <div className="section-container relative z-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-20 gap-8">
+          <div className="max-w-xl">
+            <p className="text-primary font-bold tracking-[0.4em] uppercase text-[10px] mb-4">Verification</p>
+            <h2 className="text-5xl md:text-7xl font-black text-slate-900 dark:text-white tracking-tighter leading-none">
+              The <span className="text-slate-400">Vault.</span>
+            </h2>
+          </div>
+          <p className="text-slate-500 dark:text-slate-400 max-w-xs text-sm leading-relaxed font-medium">
+            Industry-recognized credentials validating technical proficiency and strategic business management.
           </p>
         </div>
-        
-        <motion.div 
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"
           variants={container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
           {certifications.map((cert) => (
-            <motion.div 
+            <motion.div
               key={cert.id}
-              className="card p-6 flex flex-col h-full"
-              variants={item}
-              whileHover={{ 
-                y: -5,
-                transition: { duration: 0.2 }
-              }}
+              whileHover={{ scale: 1.02, y: -5 }}
+              className="group relative bg-slate-50 dark:bg-white/5 border border-slate-100 dark:border-white/10 p-8 rounded-[2rem] flex flex-col justify-between transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5 hover:border-primary/20"
             >
-              <div className="flex items-start justify-between mb-4">
-                <div className="flex items-center gap-3">
-                  <div className="text-3xl">
+              <div>
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 bg-white dark:bg-slate-900 rounded-2xl shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-500">
                     {cert.icon}
                   </div>
-                  <Award className="text-primary dark:text-primary-dark" size={24} />
+                  <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 bg-slate-100 dark:bg-white/5 px-3 py-1 rounded-full">
+                    {cert.category}
+                  </span>
                 </div>
-                {cert.link && (
-                  <a 
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-primary dark:hover:text-primary-dark transition-colors"
-                  >
-                    <ExternalLink size={18} />
-                  </a>
-                )}
+
+                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight group-hover:text-primary transition-colors">
+                  {cert.title}
+                </h3>
+                <p className="text-sm font-semibold text-slate-400 uppercase tracking-tighter">
+                  {cert.issuer}
+                </p>
               </div>
-              
-              <h3 className="text-xl font-bold mb-2">{cert.title}</h3>
-              
-              <div className="mt-auto">
-                <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400 mt-4">
-                  <span>{cert.issuer}</span>
-                  <span>{cert.date}</span>
+
+              <div className="mt-8 pt-6 border-t border-slate-200/50 dark:border-white/5 flex items-center justify-between">
+                <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400">
+                  <ShieldCheck size={14} className="text-primary" />
+                  VERIFIED • {cert.date}
                 </div>
+                <a
+                  href={cert.link}
+                  target="_blank"
+                  className="p-2 rounded-full hover:bg-primary/10 text-slate-400 hover:text-primary transition-all"
+                >
+                  <ExternalLink size={16} />
+                </a>
               </div>
             </motion.div>
           ))}
         </motion.div>
+
+        {/* Professional Footer for the section */}
+        <div className="mt-20 flex flex-wrap justify-center gap-8 opacity-30 grayscale hover:grayscale-0 transition-all duration-1000">
+          <p className="text-xs font-bold tracking-[0.2em] text-slate-500 uppercase">Trusted by Global Learning Partners</p>
+        </div>
       </div>
     </section>
   );
