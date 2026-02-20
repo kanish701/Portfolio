@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Github, ExternalLink, Code, Globe, Layers } from 'lucide-react';
+import { Github, Globe } from 'lucide-react';
 // Asset Imports
 import project1Img from '../assets/image/AIyutham.png';
 import project3Img from '../assets/image/Wearme appaarels.png';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Mail, Linkedin, Github, MessageSquare, Target, Zap, TrendingUp } from 'lucide-react';
+import { Mail, Linkedin, Target, Zap, TrendingUp } from 'lucide-react';
 import { motion } from 'framer-motion';
 import aboutImg from '../assets/image/kanish.jpg';
 
