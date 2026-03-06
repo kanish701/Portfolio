@@ -10,6 +10,9 @@ import supreme from '../assets/image/supreme.png';
 import freshfarming from '../assets/image/freshfarm.png';
 import kalimah from '../assets/image/kalimah.png';
 import visanavigator from '../assets/image/visanavigator.png';
+import bettafish from '../assets/image/bettaboss.png';
+import ticket from '../assets/image/ticket.png';
+import reddit from '../assets/image/reddit.jpeg';
 
 interface Project {
   id: number;
@@ -34,7 +37,7 @@ const Projects: React.FC = () => {
       demoLink: "https://aiyutham.com/",
     },
     {
-      id: 6,
+      id: 2,
       title: "Visa Navigator",
       category: "Web Development",
       description: "Engineered a high-conversion lead capture system for a visa firm. Integrated Google Sheets as a serverless CRM to automate client data processing without overhead costs.",
@@ -43,7 +46,16 @@ const Projects: React.FC = () => {
       demoLink: "https://visanavigator.in/",
     },
     {
-      id: 9,
+      id: 3,
+      title: "Betta Boss",
+      category: "Web Development",
+      description: "BettaBoss is a concept landing page that combines premium Betta fish selection with zodiac-inspired personalization. Users can explore curated Betta varieties or discover their “Rasi Fish” based on their date of birth, Rasi, and Nakshatra. The project focuses on a mystical brand theme, storytelling-driven UI, and a simple conversion flow from discovery to reservation.",
+      image: bettafish,
+      technologies: ["Next.js", "Tailwind CSS", "TypeScript", "HTML5", "CSS3", "payment gateway integration"],
+      demoLink: "https://bettaboss.vercel.app/homepage",
+    },
+    {
+      id: 4,
       title: "Kalimah Exports",
       category: "Web Development",
       description: "A premium digital storefront for an apparel manufacturer. Focused on high-fidelity visual storytelling and a minimalist UI to attract international fashion brands.",
@@ -52,16 +64,24 @@ const Projects: React.FC = () => {
       demoLink: "https://kalimahexports.com/",
     },
     {
-      id: 2,
+      id: 5,
       title: "Reddit Market Analyzer",
       category: "Data & AI",
       description: "A Python-based business intelligence tool that scrapes niche subreddits to identify consumer 'pain points' and untapped market opportunities using NLP.",
-      image: "https://miro.medium.com/1*kd5sLS5brHjN6i5-u76iCg.jpeg",
+      image: reddit,
       technologies: ["Python", "LLM", "Pandas", "Streamlit"],
-      githubLink: "#",
     },
     {
-      id: 3,
+      id: 6,
+      title: "Ticket Visa Travel",
+      category: "Web Development",
+      description: "A comprehensive travel and visa services platform. Built with modern web technologies to provide seamless visa booking and travel planning for users.",
+      image: ticket,
+      technologies: ["Next.js", "TypeScript", "Tailwind CSS",'HTML5', "CSS3", "Framer Motion", "SEO Optimization"],
+      demoLink: "https://ticketvisatravel-og.vercel.app/",
+    },
+    {
+      id: 7,
       title: "WearMe Apparels",
       category: "Business Solutions",
       description: "Digital brand transformation for a lifestyle clothing line. Created a visual philosophy that bridges the gap between traditional manufacturing and modern fashion trends.",
@@ -79,7 +99,7 @@ const Projects: React.FC = () => {
       demoLink: "https://supremeindia.in/",
     },
     {
-      id: 7,
+      id: 9,
       title: "FreshFarming",
       category: "Business Solutions",
       description: "B2B export platform for agricultural goods. Implemented trust-centered design principles and SEO-copywriting to facilitate international trade inquiries.",
@@ -88,22 +108,20 @@ const Projects: React.FC = () => {
       demoLink: "https://freshfarming.in/",
     },
     {
-      id: 4,
+      id: 10,
       title: "S.H.A.D.Y AI",
       category: "Data & AI",
       description: "Real-time human activity detection system using the YOLO framework. A technical showcase of computer vision applied to security and safety monitoring.",
       image: project4Img,
       technologies: ["Python", "YOLO v8", "OpenCV", "Deep Learning"],
-      githubLink: "#",
     },
     {
-      id: 5,
+      id: 11,
       title: "Weman Power",
       category: "Web Development",
       description: "A professional service showcase for a manpower agency. Features dynamic job categorization and a streamlined login flow for enterprise employers.",
       image: project5Img,
       technologies: ["React", "Tailwind CSS", "React Router"],
-      demoLink: "#",
     }
   ];
 
